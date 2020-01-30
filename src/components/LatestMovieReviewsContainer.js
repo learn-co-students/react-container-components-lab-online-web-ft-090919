@@ -32,15 +32,7 @@ class LatestMovieReviewsContainer extends Component {
         return(
             <div className="latest-movie-reviews">
                 <h1>Latest Reviews</h1>
-                {this.state.reviews.map(review => {
-                    return <MovieReviews 
-                        title={review.display_title} 
-                        key={review.display_title}
-                        rating={review.mpaa_rating}
-                        headline={review.headline}
-                        summary={review.summary_short}
-                        />
-                })}
+                <MovieReviews reviews={this.state.reviews} />
             </div>
         )
     }

@@ -27,14 +27,6 @@ class SearchableMovieReviewsContainer extends Component {
         event.target.searchTerm.value = ""
     }
 
-    shouldComponentUpdate(nextProps, nextState) {
-        if (this.state.reviews === nextState.reviews) {
-            return false
-        } else {
-            return true
-        }
-    }
-
 
 
     render() {
@@ -44,15 +36,7 @@ class SearchableMovieReviewsContainer extends Component {
                     <input type="text" id="searchTerm"></input>
                     <input type="submit" value="Search"></input>
                 </form>
-                {this.state.reviews.map(review => {
-                    return <MovieReviews 
-                        title={review.display_title} 
-                        key={review.display_title}
-                        rating={review.mpaa_rating}
-                        headline={review.headline}
-                        summary={review.summary_short}
-                        />
-                })}
+                <MovieReviews reviews={this.state.reviews} />
             </div>
         )
     }
